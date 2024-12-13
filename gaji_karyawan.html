@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Gaji Karyawan</title>
+</head>
+<body>
+    <h2>Perhitungan Gaji Karyawan</h2>
+
+    <script>
+        // Fungsi untuk menghitung gaji
+        function hitungGaji(jamKerja, tarifPerJam) {
+            let totalGaji;
+
+            if (jamKerja > 40) {
+                // Hitung gaji normal (40 jam) dan lembur
+                const jamLembur = jamKerja - 40;
+                const gajiNormal = 40 * tarifPerJam;
+                const gajiLembur = jamLembur * tarifPerJam * 1.5;
+                totalGaji = gajiNormal + gajiLembur;
+            } else {
+                // Hitung gaji biasa
+                totalGaji = jamKerja * tarifPerJam;
+            }
+
+            return totalGaji;
+        }
+
+        // Contoh penggunaan
+        const jamKerja = 45; // Jumlah jam kerja
+        const tarifPerJam = 10000; // Tarif per jam
+
+        const gaji = hitungGaji(jamKerja, tarifPerJam);
+        console.log("Total Gaji Karyawan: Rp " + gaji.toLocaleString());
+    </script>
+</body>
+</html>
